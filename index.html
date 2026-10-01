@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Photo Dashboard</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;font-family:Arial;
+ background:#050505;color:white;display:flex;
+ justify-content:center;align-items:center;overflow:hidden
+}
+body:before{
+ content:"";position:fixed;width:450px;height:450px;
+ background:linear-gradient(45deg,#007bff,#00ffff,#7b00ff);
+ filter:blur(100px);border-radius:50%;
+ animation:bg 6s infinite alternate
+}
+@keyframes bg{
+ from{transform:translate(-150px,-100px)}
+ to{transform:translate(150px,100px)}
+}
+.box{
+ position:relative;width:90%;max-width:360px;
+ padding:28px;border-radius:20px;
+ background:#111c;backdrop-filter:blur(15px);
+ box-shadow:0 0 35px #008cff66;
+ animation:show 1s ease
+}
+@keyframes show{
+ from{opacity:0;transform:scale(.7) translateY(50px)}
+ to{opacity:1;transform:scale(1) translateY(0)}
+}
+h2{text-align:center;text-shadow:0 0 15px #00c6ff}
+input{
+ width:100%;padding:14px;margin:8px 0;
+ border:1px solid #444;border-radius:8px;
+ background:#111;color:white;outline:none
+}
+input:focus{
+ border-color:#00c6ff;box-shadow:0 0 12px #00c6ff
+}
+button{
+ width:100%;padding:14px;margin-top:12px;
+ border:0;border-radius:8px;
+ background:linear-gradient(90deg,#006eff,#00c6ff);
+ color:white;font-size:16px;font-weight:bold;
+ transition:.3s;cursor:pointer
+}
+button:hover{transform:scale(1.05);box-shadow:0 0 20px #00c6ff}
+
+#dashboard{display:none;text-align:center}
+.card{
+ margin-top:20px;padding:20px;border-radius:15px;
+ background:#ffffff12;border:1px solid #ffffff22
+}
+.card a{
+ display:block;text-decoration:none;color:white;
+ background:linear-gradient(90deg,#7b00ff,#00aaff);
+ padding:14px;border-radius:9px;margin-top:15px
+}
+.logout{background:#333;margin-top:20px}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<!-- LOGIN -->
+<div id="login">
+<h2>LOGIN</h2>
+
+<input id="username" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="login()">LOGIN</button>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+
+<h2>✨ AI PHOTO</h2>
+
+<p>Welcome to your dashboard</p>
+
+<div class="card">
+<h3>AI Enhance Photo</h3>
+<p>Enhance your photo with AI</p>
+
+<!-- Yaha apna AI Enhance Photo link daalo -->
+<a href="https://picsart.com/ai-image-enhancer/" target="_blank">
+?OPEN AI ENHANCE PHOTO
+</a>
+</div>
+
+<button class="logout" onclick="logout()">LOGOUT</button>
+
+</div>
+
+</div>
+
+<script>
+
+function login(){
+
+  // APNA USERNAME/PASSWORD YAHAN SET KARO
+  const correctUser = "adminisiguro";
+  const correctPass = "Domuis765";
+
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+
+  if(user === correctUser && pass === correctPass){
+
+    document.getElementById("login").style.display="none";
+    document.getElementById("dashboard").style.display="block";
+
+  }else{
+    alert("Wrong username or password!");
+  }
+}
+
+function logout(){
+  document.getElementById("dashboard").style.display="none";
+  document.getElementById("login").style.display="block";
+}
+
+</script>
+
+</body>
+</html>
